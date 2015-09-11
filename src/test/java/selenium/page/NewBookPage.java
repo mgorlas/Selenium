@@ -18,6 +18,8 @@ public class NewBookPage extends AbstractPageObject {
 	private WebElement removeAuthor;
 	@FindBy(css = ".addnextauthor")
 	private WebElement addAuthor;
+	@FindBy(css = "div.modal-footer > button.btn.btn-danger")
+	private WebElement close;
 
 	public NewBookPage(WebDriver driver) {
 		super(driver);
@@ -44,6 +46,11 @@ public class NewBookPage extends AbstractPageObject {
 	
 	public BookListPage clickAddBookButton() {
 		saveBook.click();
+		return PageFactory.initElements(driver, BookListPage.class);
+	}
+	
+	public BookListPage clickCloseButton() {
+		close.click();
 		return PageFactory.initElements(driver, BookListPage.class);
 	}
 	

@@ -61,5 +61,10 @@ public class NewBookFormValidationTest extends AbstractSelenium {
 		newBookPage.clickRemoveAuthorButton();
 		assertFalse(newBookPage.isDisplayRemoveAuthorButton(1));
 	}
+	@Test
+	public void shouldCloseModalWindowAndNotAddBook() {
+		newBookPage.clickCloseButton();
+		assertFalse(newBookPage.hasSuccess());
+	}
 
 }

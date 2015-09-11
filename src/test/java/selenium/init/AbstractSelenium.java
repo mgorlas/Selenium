@@ -26,7 +26,7 @@ public class AbstractSelenium {
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("init.accept_languages", "en");
 		driver = new FirefoxDriver(profile);
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	public HomePage openLibrary() {
