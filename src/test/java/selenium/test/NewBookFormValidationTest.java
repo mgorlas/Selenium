@@ -20,32 +20,33 @@ public class NewBookFormValidationTest extends AbstractSelenium {
 		newBookPage = openLibrary().clickBookList().clickAddBook();
 	}
 
-//	@Test
-//	public void shouldCheckValidateFormAndAddBook() {
-//		newBookPage.setTitle("Book test");
-//		newBookPage.setFirstName("First name test");
-//		newBookPage.setLastName("Last name test");
-//		newBookPage.clickAddBookButton();
-//		assertTrue(newBookPage.hasSuccess());
-//	}
-//	
-//	@Test
-//	public void shouldCheckIfTitleIsRequired() {
-//		newBookPage.setFirstName("First name test");
-//		newBookPage.setLastName("Last name test");
-//		newBookPage.clickAddBookButton();
-//		assertFalse(newBookPage.hasSuccess());
-//		assertTrue(newBookPage.hasEmpty());
-//	}
-//	
-//	@Test
-//	public void shouldCheckIfFirstNameIsRequired() {
-//		newBookPage.setTitle("Title test");
-//		newBookPage.setLastName("Last name test");
-//		newBookPage.clickAddBookButton();
-//		assertFalse(newBookPage.hasSuccess());
-//		assertTrue(newBookPage.hasEmpty());
-//	}
+	@Test
+	public void shouldCheckValidateFormAndAddBook() {
+		newBookPage.setTitle("Book test");
+		newBookPage.setFirstName("First name test");
+		newBookPage.setLastName("Last name test");
+		newBookPage.clickAddBookButton();
+		assertTrue(newBookPage.hasSuccess());
+	}
+	
+	@Test
+	public void shouldCheckIfTitleIsRequired() {
+		newBookPage.setFirstName("First name test");
+		newBookPage.setLastName("Last name test");
+		newBookPage.clickAddBookButton();
+		assertFalse(newBookPage.hasSuccess());
+		assertTrue(newBookPage.hasEmptyInput());
+	}
+	
+	@Test
+	public void shouldCheckIfFirstNameIsRequired() {
+		newBookPage.setTitle("Title test");
+		newBookPage.setLastName("Last name test");
+		newBookPage.clickAddBookButton();
+		assertFalse(newBookPage.hasSuccess());
+		assertTrue(newBookPage.hasEmptyInput());
+	}
+	
 	@Test
 	public void shouldCheckIfLastNameIsRequired() {
 		newBookPage.setTitle("Title test");
@@ -53,6 +54,12 @@ public class NewBookFormValidationTest extends AbstractSelenium {
 		newBookPage.clickAddBookButton();
 		assertFalse(newBookPage.hasSuccess());
 		assertTrue(newBookPage.hasEmptyInput());
+	}
+	
+	@Test
+	public void shouldRemoveAuthorFromModal() {
+		newBookPage.clickRemoveAuthorButton();
+		assertFalse(newBookPage.isDisplayRemoveAuthorButton(1));
 	}
 
 }

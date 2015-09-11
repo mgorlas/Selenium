@@ -14,7 +14,15 @@ public class NewBookPage extends AbstractPageObject {
 	private WebElement inputFirstName;
 	private WebElement inputLastName;
 	private WebElement saveBook;
-	
+	@FindBy(css = "div.modal-body > div:nth-child(3) > button")
+	private WebElement removeAuthor;
+	@FindBy(css = ".addnextauthor")
+	private WebElement addAuthor;
+
+	public NewBookPage(WebDriver driver) {
+		super(driver);
+	}
+
 	public NewBookPage setTitle(String inputTitle) {
 		this.inputTitle.sendKeys(inputTitle);
 		return this;
@@ -28,14 +36,20 @@ public class NewBookPage extends AbstractPageObject {
 		this.inputLastName.sendKeys(inputLastName);
 		return this;
 	}
-	
-	public NewBookPage(WebDriver driver) {
-		super(driver);
+
+	public BookListPage clickRemoveAuthorButton() {
+		removeAuthor.click();
+		return PageFactory.initElements(driver, BookListPage.class);
 	}
 	
 	public BookListPage clickAddBookButton() {
 		saveBook.click();
 		return PageFactory.initElements(driver, BookListPage.class);
+	}
+	
+	public AddAuthorPage clickAddAuthorButton() {
+		addAuthor.click();
+		return PageFactory.initElements(driver, AddAuthorPage.class);
 	}
 
 }
