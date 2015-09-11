@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import selenium.init.AbstractPageObject;
 
 public class BookListPage extends AbstractPageObject {
+	@FindBy(css = "button.btn:nth-child(3)")
 	private WebElement addBook;
 	@FindBy(css = ".input-group .btn-primary")
 	private WebElement searchBooks;

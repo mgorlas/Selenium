@@ -13,6 +13,7 @@ public class NewBookPage extends AbstractPageObject {
 	private WebElement inputTitle;
 	private WebElement inputFirstName;
 	private WebElement inputLastName;
+	@FindBy(css = "button.btn-success:nth-child(1)")
 	private WebElement saveBook;
 	@FindBy(css = "div.modal-body > div:nth-child(3) > button")
 	private WebElement removeAuthor;
